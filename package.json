@@ -1,0 +1,26 @@
+{
+  "name": "bad-boi-banner",
+  "version": "1.0.0",
+  "description": "Bans raid bots",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "prettier": "prettier --write \"**/*.ts\""
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngaBlue/bad-boi-banner.git"
+  },
+  "author": "AngaBlue",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "prettier": "^2.0.5"
+  }
+}
