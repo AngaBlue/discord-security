@@ -14,7 +14,8 @@
         "experimentalDecorators": true,
         "lib": ["ES6"],
         "pretty": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "skipLibCheck": true 
     },
     "include": [
         "src"
