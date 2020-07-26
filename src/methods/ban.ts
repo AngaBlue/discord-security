@@ -7,7 +7,7 @@ export async function ban(member: GuildMember, violation: string) {
         await member.ban({ reason: `Auto Ban: ${violation}` });
         logChannel.send(
             new MessageEmbed()
-                .setAuthor({ name: "Member Auto Banned", iconUrl: client.user.displayAvatarURL() })
+                .setAuthor("Member Auto Banned", client.user.displayAvatarURL() )
                 .setColor(0xff4040)
                 .setThumbnail(member.user.displayAvatarURL())
                 .addField("Server", member.guild.name)
@@ -19,7 +19,7 @@ export async function ban(member: GuildMember, violation: string) {
     } catch (error) {
         logChannel.send(
             new MessageEmbed()
-                .setAuthor({ name: "Error", iconUrl: client.user.displayAvatarURL() })
+                .setAuthor("Error", client.user.displayAvatarURL())
                 .setColor(0xff4040)
                 .addField("Error", "Failed to auto ban.")
                 .addField("Server", member.guild.name)
