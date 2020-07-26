@@ -4,25 +4,28 @@ import { GuildMember, TextChannel, RichEmbed } from "discord.js";
 export async function ban(member: GuildMember, violation: string) {
     const logChannel = client.channels.get(config.logChannel) as TextChannel;
     try {
-        await member.ban("Giveaway Account");
+        await member.ban(`Auto Ban: ${violation}`);
         logChannel.send(
             new RichEmbed()
-                .setTitle("Member Auto Banned")
+                .setAuthor("Member Auto Banned", client.user.displayAvatarURL)
                 .setColor(0xff4040)
-                .addField("Server", member.guild.name, true)
-                .addField("Member", `${member}\n${member.user.tag}\n${member.id}`, true)
+                .setThumbnail(member.user.displayAvatarURL)
+                .addField("Server", member.guild.name)
+                .addField("Member", `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}`)
                 .addField("Violation", violation)
                 .setFooter("bad boi banner")
+                .setTimestamp(Date.now())
         );
     } catch (error) {
         logChannel.send(
             new RichEmbed()
-                .setTitle("Error")
+                .setAuthor("Error", client.user.displayAvatarURL)
                 .setColor(0xff4040)
                 .addField("Error", "Failed to auto ban.")
-                .addField("Server", member.guild.name, true)
-                .addField("Member", `${member}\n${member.user.tag}\n${member.id}`, true)
+                .addField("Server", member.guild.name)
+                .addField("Member", `${member}\n${member.user.tag}\n${member.id}`)
                 .setFooter("bad boi banner")
+                .setTimestamp(Date.now())
         );
     }
 }
