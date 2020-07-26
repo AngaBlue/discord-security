@@ -1,8 +1,7 @@
 import { client } from "..";
+import setStatus from "../methods/setStatus";
 
 client.on("ready", () => {
     console.log(`Started on ${client.user.tag}`);
-    client.user.setActivity(`bad boi banner who bans bad bois`, {
-        type: "PLAYING"
-    });
+    setStatus();
 });

@@ -1,15 +1,15 @@
 import { client, config } from "..";
-import { GuildMember, TextChannel, RichEmbed } from "discord.js";
+import { GuildMember, TextChannel, MessageEmbed } from "discord.js";
 
 export async function ban(member: GuildMember, violation: string) {
-    const logChannel = client.channels.get(config.logChannel) as TextChannel;
+    const logChannel = (await client.channels.fetch(config.logChannel)) as TextChannel;
     try {
-        await member.ban(`Auto Ban: ${violation}`);
+        await member.ban({ reason: `Auto Ban: ${violation}` });
         logChannel.send(
-            new RichEmbed()
-                .setAuthor("Member Auto Banned", client.user.displayAvatarURL)
+            new MessageEmbed()
+                .setAuthor({ name: "Member Auto Banned", iconUrl: client.user.displayAvatarURL() })
                 .setColor(0xff4040)
-                .setThumbnail(member.user.displayAvatarURL)
+                .setThumbnail(member.user.displayAvatarURL())
                 .addField("Server", member.guild.name)
                 .addField("Member", `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}`)
                 .addField("Violation", violation)
@@ -18,8 +18,8 @@ export async function ban(member: GuildMember, violation: string) {
         );
     } catch (error) {
         logChannel.send(
-            new RichEmbed()
-                .setAuthor("Error", client.user.displayAvatarURL)
+            new MessageEmbed()
+                .setAuthor({ name: "Error", iconUrl: client.user.displayAvatarURL() })
                 .setColor(0xff4040)
                 .addField("Error", "Failed to auto ban.")
                 .addField("Server", member.guild.name)

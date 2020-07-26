@@ -1,6 +1,7 @@
 import { client } from "..";
 import filter from "../filter";
 import { ban } from "../methods/ban";
+import { GuildMember } from "discord.js";
 
 let nameLog: {
     [index: string]: {
@@ -14,6 +15,7 @@ let nameLog: {
 const hour = 1000 * 60 * 60;
 
 client.on("guildMemberAdd", async (member) => {
+    member = member as GuildMember;
     //Banned Words
     const name = member.displayName.toLowerCase();
     for (let test of filter) {
@@ -21,7 +23,7 @@ client.on("guildMemberAdd", async (member) => {
     }
     //Multiple Same Name Accounts
     nameLog[member.displayName] = nameLog[member.displayName] || [];
-    if (!nameLog[member.displayName].find(m => m.id === member.id))
+    if (!nameLog[member.displayName].find((m) => m.id === member.id))
         nameLog[member.displayName].push({
             id: member.id,
             guild: member.guild.id,
@@ -29,13 +31,13 @@ client.on("guildMemberAdd", async (member) => {
             banned: false
         });
     //If Account w/ Same Name in Last Hour
-    let members = nameLog[member.displayName]
+    let members = nameLog[member.displayName];
     if (members.length > 1 && members[members.length - 2].joined > Date.now() - hour) {
         //Ban All Recent Accounts with Same Name
         for (let i in members) {
             let entry = members[i];
             if (!entry.banned && entry.joined > Date.now() - hour) {
-                await ban(client.guilds.get(entry.guild).members.get(entry.id), "Duplicate username");
+                await ban(await client.guilds.resolve(entry.guild).members.fetch(entry.id), "Duplicate username");
                 entry.banned = true;
             }
         }

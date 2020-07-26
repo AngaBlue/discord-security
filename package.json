@@ -17,7 +17,7 @@
   "author": "AngaBlue",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.6.4"
+    "discord.js": "^12.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.26",
