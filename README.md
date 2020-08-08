@@ -1,4 +1,4 @@
-# bad-boi-banner
+# 🛡️ Discord Security
 Automatic Raid Bot Banner
 
 # Contributing
