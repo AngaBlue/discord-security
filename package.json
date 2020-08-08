@@ -1,5 +1,5 @@
 {
-  "name": "bad-boi-banner",
+  "name": "discord-security",
   "version": "1.0.0",
   "description": "Bans raid bots",
   "main": "build/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AngaBlue/bad-boi-banner.git"
+    "url": "git+https://github.com/AngaBlue/discord-security.git"
   },
   "author": "AngaBlue",
   "license": "MIT",
