@@ -1,12 +1,7 @@
 import { GuildMember, Collection } from "discord.js";
 import { ban } from "../ban";
 import normalize from "../normalize";
-
-type MemberJoinEntry = {
-    guild: string;
-    joined: number;
-    banned: boolean;
-};
+import { MemberJoinEntry } from "./duplicateAvatar";
 
 let nameLog: {
     //Guild ID
@@ -26,7 +21,6 @@ export default async function (member: GuildMember): Promise<boolean> {
     //Add Member Record
     let members = nameLog[member.guild.id][name];
     members.set(name, {
-        guild: member.guild.id,
         joined: Date.now(),
         banned: false
     });
