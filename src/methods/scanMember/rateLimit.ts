@@ -8,7 +8,7 @@ let rateLimits: {
 } = {};
 
 const limit = 3;
-const time = 60 * 1000;
+const time = 30 * 1000;
 
 export default async function (member: GuildMember): Promise<boolean> {
     if (!rateLimits[member.guild.id]) rateLimits[member.guild.id] = [];
