@@ -6,5 +6,5 @@ client.on("ready", () => {
     setStatus();
 });
 
-//Update Status Every Hour
-setInterval(setStatus, 60 * 60 * 1000);
+//Update Status Every 10 Minutes
+setInterval(setStatus, 10 * 60 * 1000);
