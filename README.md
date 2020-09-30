@@ -2,7 +2,11 @@
 Automatic Raid Bot Banner
 
 # Contributing
-Fork and create a pull request to contribute.  If you have any questions DM on Discord at AngaBlue#0100
+Please fork this repository and create a pull request to contribute any fixes or feature upgrades.
+
+If you have any questions [message me on discord](https://anga.blue/discord).
 
 # Invite Bot
-https://discord.com/oauth2/authorize?client_id=734354609631526963&scope=bot&permissions=4
+You can invite this bot to your server to protect your users with the following link:
+
+[Invite Link](https://discord.com/oauth2/authorize?client_id=734354609631526963&scope=bot&permissions=4)

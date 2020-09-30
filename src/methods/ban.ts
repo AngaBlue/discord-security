@@ -3,6 +3,8 @@ import { GuildMember, TextChannel, MessageEmbed } from "discord.js";
 
 export async function ban(member: GuildMember, violation: string) {
     if (!member) return;
+    //If Verified Bot, Don't Ban
+    if (member.user.bot) return;
     const logChannel = (await client.channels.fetch(config.logChannel)) as TextChannel;
     try {
         await member.ban({ reason: `Auto Ban: ${violation}` });

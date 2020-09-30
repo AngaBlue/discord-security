@@ -29,7 +29,7 @@ export default async function (member: GuildMember): Promise<boolean> {
         //Ban Recent
         let membersToBan = [members.keyArray()[members.size - 2], members.keyArray()[members.size - 1]];
         for (let id of membersToBan) {
-            let memberToBan = members.get(id)
+            let memberToBan = members.get(id);
             if (memberToBan.banned === BanStatus.UNBANNED) {
                 members.set(id, { ...memberToBan, banned: BanStatus.BANNING });
                 await ban(await member.guild.members.fetch(id), "Duplicate Username");
