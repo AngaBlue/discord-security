@@ -13,13 +13,7 @@ export interface MemberJoinEntry {
     banned: BanStatus;
 }
 
-let avatarLog: {
-    //Guild ID
-    [index: string]: {
-        //Normalized Name
-        [index: string]: Collection<string, MemberJoinEntry>;
-    };
-} = {};
+let avatarLog: Record<string, Record<string, Collection<string, MemberJoinEntry>>> = {};
 
 export default async function (member: GuildMember): Promise<boolean> {
     if (!member.user.avatar) return false;

@@ -1,6 +1,11 @@
 import { client, config } from "..";
 import { GuildMember, TextChannel, MessageEmbed } from "discord.js";
 
+/**
+ * Bans a member from the guild and logs the ban to the logs channel.
+ * @param {GuildMember} member Member to ban
+ * @param {string} violation Reason as to why this member is being banned
+ */
 export async function ban(member: GuildMember, violation: string) {
     if (!member) return;
     //If Verified Bot, Don't Ban

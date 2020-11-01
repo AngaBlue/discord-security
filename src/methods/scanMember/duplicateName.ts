@@ -3,15 +3,7 @@ import { ban } from "../ban";
 import normalize from "../normalize";
 import { BanStatus, MemberJoinEntry } from "./duplicateAvatar";
 
-let nameLog: {
-    //Guild ID
-    [index: string]: {
-        //Normalized Name
-        [index: string]: Collection<string, MemberJoinEntry>;
-    };
-} = {};
-
-const hour = 1000 * 60 * 60;
+let nameLog: Record<string, Record<string, Collection<string, MemberJoinEntry>>> = {};
 
 export default async function (member: GuildMember): Promise<boolean> {
     const name = normalize(member.user.username);
@@ -24,7 +16,7 @@ export default async function (member: GuildMember): Promise<boolean> {
         joined: Date.now(),
         banned: BanStatus.UNBANNED
     });
-    //If Account w/ Same Name in Last Hour
+    //If Account w/ Same Name in 5 Minutes
     if (members.size > 1 && members.array()[members.size - 2].joined > Date.now() - 5 * 60 * 1000) {
         //Ban Recent
         let membersToBan = [members.keyArray()[members.size - 2], members.keyArray()[members.size - 1]];
