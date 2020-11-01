@@ -1,8 +1,8 @@
 import { GuildMember } from "discord.js";
-import { ban } from "../ban";
+import ban from "../ban";
 import { BanStatus, MemberJoinEntry } from "./duplicateAvatar";
 
-let rateLimits: {
+const rateLimits: {
     //Index by Guild ID
     [index: string]: (MemberJoinEntry & { member: string })[];
 } = {};
@@ -17,7 +17,7 @@ export default async function (member: GuildMember): Promise<boolean> {
     if (guildLimits.length >= limit && guildLimits[guildLimits.length - limit].joined > Date.now() - time) {
         for (let i = guildLimits.length - limit; i < guildLimits.length; i++) {
             if (guildLimits[i].banned === BanStatus.UNBANNED) {
-                let user = member.guild.members.resolve(guildLimits[i].member);
+                const user = member.guild.members.resolve(guildLimits[i].member);
                 guildLimits[i].banned = BanStatus.BANNING;
                 await ban(user, `New User Rate Limit`);
                 guildLimits[i].banned = BanStatus.BANNED;
