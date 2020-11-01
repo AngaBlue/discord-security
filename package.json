@@ -18,11 +18,11 @@
   "author": "AngaBlue",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.4.1",
     "normalize-strings": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^14.0.26",
+    "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "eslint": "^7.12.1",
