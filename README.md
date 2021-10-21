@@ -1,5 +1,6 @@
-# 🛡️ Discord Security
-Automatic Raid Bot Banner
+<h1 align="center">Discord Security</h1>
+
+Automatically bans raid bots using common name and image detection.
 
 # Contributing
 Please fork this repository and create a pull request to contribute any fixes or feature upgrades.
