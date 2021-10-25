@@ -10,6 +10,7 @@ config.json
 
 # Ecosystem
 ecosystem.config.js
+
 # Dependency directories
 node_modules/
 

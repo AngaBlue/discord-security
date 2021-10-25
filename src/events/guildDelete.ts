@@ -1,4 +1,4 @@
-import { client } from "..";
-import setStatus from "../methods/setStatus";
+import { client } from '..';
+import setStatus from '../methods/setStatus';
 
-client.on("guildDelete", () => setStatus());
+client.on('guildDelete', () => setStatus());

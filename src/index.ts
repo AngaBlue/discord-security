@@ -1,9 +1,10 @@
-import Discord from "discord.js";
-import config from "./config.json";
+import Discord from 'discord.js';
+import config from './config.json';
+
+// Bind Events
+import './events';
+
 const client = new Discord.Client();
 export { client, config };
-
-//Bind Events
-import "./events";
 
 client.login(config.token);

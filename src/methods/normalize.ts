@@ -1,4 +1,4 @@
-import normalizeStrings from "normalize-strings";
+import normalizeStrings from 'normalize-strings';
 
 /**
  * Normalizes strings. Returns string with accents removed, special characters converted, in all lowercase.
@@ -6,13 +6,13 @@ import normalizeStrings from "normalize-strings";
  * @returns {string} Normalized string
  */
 function normalize(str: string): string {
-    //Remove Accents
-    str = normalizeStrings(str);
-    //Replace Special Characters w/ Spaces
-    str = str.replace(/[^a-zA-Z\d]/g, " ");
-    str = str.trim();
-    str = str.toLowerCase();
-    return str;
+    // Remove Accents
+    let out = normalizeStrings(str);
+    // Replace Special Characters w/ Spaces
+    out = out.replace(/[^a-zA-Z\d]/g, ' ');
+    out = out.trim();
+    out = out.toLowerCase();
+    return out;
 }
 
 export default normalize;

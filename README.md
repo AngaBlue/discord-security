@@ -1,13 +1,46 @@
-<h1 align="center">Discord Security</h1>
+<h1 align="center">Welcome to Discord Security 👋</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000&label=Version" />
+  <a href="https://github.com/AngaBlue/discord-security/blob/master/LICENSE" target="_blank">
+    <img alt="License: LGPL--3.0--or--later" src="https://img.shields.io/github/license/AngaBlue/discord-security?color=green" />
+  </a>
+</p>
 
-Automatically bans raid bots using common name and image detection.
+Automatically ban raid bots from Discord servers using common name and image detection.
 
-# Contributing
-Please fork this repository and create a pull request to contribute any fixes or feature upgrades.
+### 🏠 [Homepage](https://github.com/AngaBlue/discord-security)
 
-If you have any questions [message me on discord](https://anga.blue/discord).
+## Install
+Clone or download this repository and install dependices using your package manager of choice.
+```sh
+ npm i
+```
+or
+```sh
+ yarn
+```
 
-# Invite Bot
-You can invite this bot to your server to protect your users with the following link:
+## Usage
+1. Fill out `src/config-template.json` with the relevant details.
 
-[Invite Link](https://discord.com/oauth2/authorize?client_id=734354609631526963&scope=bot&permissions=4)
+2. Rename `src/config-template.json` to `src/config.json`.
+
+3. Build the project using `npm run build` or `yarn build`.
+
+4. Start the bot with `npm start` or `yarn start`.
+
+## Author
+
+👤 **AngaBlue <contact@anga.blue>**
+
+* Website: https://anga.blue
+* Github: [@AngaBlue](https://github.com/AngaBlue)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2021 [AngaBlue <contact@anga.blue>](https://github.com/AngaBlue).<br />
+This project is [LGPL--3.0--or--later](https://github.com/AngaBlue/discord-security/blob/master/LICENSE) licensed.

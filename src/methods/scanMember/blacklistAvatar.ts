@@ -1,15 +1,15 @@
-import { GuildMember } from "discord.js";
-import { avatar as blacklist } from "../../blacklist";
-import ban from "../ban";
+import { GuildMember } from 'discord.js';
+import { avatar as blacklist } from '../../blacklist';
+import ban from '../ban';
 
-export default function (member: GuildMember): boolean {
+export default (member: GuildMember): boolean => {
     if (!member.user.avatar) return false;
-    const avatar = member.user.avatar;
-    for (const test of blacklist) {
+    const { avatar } = member.user;
+    return blacklist.some(test => {
         if (avatar.search(test) !== -1) {
             ban(member, `Avatar Filter Violation: \`${test}\``);
             return true;
         }
-    }
-    return false;
-}
+        return false;
+    });
+};
