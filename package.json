@@ -1,7 +1,7 @@
 {
   "name": "discord-security",
-  "version": "1.0.0",
-  "description": "Bans raid bots",
+  "version": "1.0.1",
+  "description": "Automatically ban raid bots from Discord servers using common name and image detection.",
   "main": "build/index.js",
   "scripts": {
     "start": "node build/index.js",
