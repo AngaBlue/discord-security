@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "start": "node build/index.js",
+    "build": "tsc",
     "lint": "eslint . --ext js,jsx,ts,tsx --fix"
   },
   "repository": {
