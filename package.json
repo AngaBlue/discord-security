@@ -13,7 +13,7 @@
     "url": "git+https://github.com/AngaBlue/discord-security.git"
   },
   "author": "AngaBlue",
-  "license": "LGPL-3.0",
+  "license": "LGPL-3.0-or-later",
   "dependencies": {
     "discord.js": "^12.5.3",
     "normalize-strings": "^1.1.1"
