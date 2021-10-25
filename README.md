@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Discord Security 👋</h1>
+<h1 align="center">Discord Security 🛡️</h1>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000&label=Version" />
   <a href="https://github.com/AngaBlue/discord-security/blob/master/LICENSE" target="_blank">
