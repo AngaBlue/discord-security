@@ -18,19 +18,23 @@ const avatarLog: Record<string, Record<string, Collection<string, MemberJoinEntr
 export default async (member: GuildMember): Promise<boolean> => {
     if (!member.user.avatar) return false;
     const { avatar } = member.user;
+
     // Initialise Guild + Name Collections
     if (!avatarLog[member.guild.id]) avatarLog[member.guild.id] = {};
     if (!avatarLog[member.guild.id][avatar]) avatarLog[member.guild.id][avatar] = new Collection();
+
     // Add Member Record
     const members = avatarLog[member.guild.id][avatar];
     members.set(avatar, {
         joined: Date.now(),
         banned: BanStatus.UNBANNED
     });
+
     // If Account w/ Same Name in Last 5 Minutes
-    if (members.size > 1 && members.array()[members.size - 2].joined > Date.now() - 5 * 60 * 1000) {
+    if (members.size > 1 && members.at(-2).joined > Date.now() - 5 * 60 * 1000) {
         // Ban Recent
-        const membersToBan = [members.keyArray()[members.size - 2], members.keyArray()[members.size - 1]];
+        const membersToBan = [members.keyAt(-2), members.keyAt(-1)];
+
         for (let i = 0; i++; i < membersToBan.length) {
             const id = membersToBan[i];
             const memberToBan = members.get(id);
