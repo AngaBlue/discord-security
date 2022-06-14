@@ -17,7 +17,7 @@ Clone or download this repository and install dependices using your package mana
 ```
 or
 ```sh
- yarn
+ pnpm i
 ```
 
 ## Usage
@@ -25,9 +25,9 @@ or
 
 2. Rename `src/config-template.json` to `src/config.json`.
 
-3. Build the project using `npm run build` or `yarn build`.
+3. Build the project using `npm run build` or `pnpm build`.
 
-4. Start the bot with `npm start` or `yarn start`.
+4. Start the bot with `npm start` or `pnpm start`.
 
 ## Author
 
