@@ -11,7 +11,10 @@ client.on('guildCreate', async guild => {
         .setAuthor({ name: 'Joined Server', iconURL: client.user?.displayAvatarURL() })
         .setColor(0x40ff40)
         .setThumbnail(guild.iconURL())
-        .addFields([{ name: 'Server', value: guild.name },  { name: 'Members', value: `${guild.memberCount}` }])
+        .addFields([
+            { name: 'Server', value: guild.name },
+            { name: 'Members', value: `${guild.memberCount}` }
+        ])
         .setFooter({ text: 'Discord Security' })
         .setTimestamp(Date.now());
 
