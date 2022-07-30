@@ -4,7 +4,7 @@ import config from './config.json';
 // Bind Events
 import './events';
 
-const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES'] });
+const client = new Discord.Client({ intents: ['Guilds', 'GuildMembers', 'GuildBans'] });
 export { client, config };
 
 client.login(config.token);

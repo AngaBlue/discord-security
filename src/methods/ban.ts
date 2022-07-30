@@ -1,4 +1,4 @@
-import { GuildMember, TextChannel, MessageEmbed } from 'discord.js';
+import { GuildMember, TextChannel, EmbedBuilder } from 'discord.js';
 import { client, config } from '..';
 
 /**
@@ -14,24 +14,20 @@ async function ban(member: GuildMember, violation: string): Promise<void> {
     try {
         await member.ban({ reason: `Auto Ban: ${violation}` });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setAuthor({ name: 'Member Auto Banned', iconURL: client.user.displayAvatarURL() })
             .setColor(0xff4040)
             .setThumbnail(member.user.displayAvatarURL())
-            .addField('Server', member.guild.name)
-            .addField('Member', `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}`)
-            .addField('Violation', violation)
+            .addFields([{ name: 'Server', value: member.guild.name }, { name: 'Member', value: `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}` }, { name: 'Violation', value: violation }])
             .setFooter({ text: 'Discord Security' })
             .setTimestamp(Date.now());
 
         logChannel.send({ embeds: [embed] });
     } catch (error) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setAuthor({ name: 'Error', iconURL: client.user.displayAvatarURL() })
             .setColor(0xff4040)
-            .addField('Error', 'Failed to auto ban.')
-            .addField('Server', member.guild.name)
-            .addField('Member', `${member}\n${member.user.tag}\n${member.id}`)
+            .addFields([{ name: 'Error', value: 'Failed to auto ban.'}, { name: 'Server', value: member.guild.name }, { name: 'Member', value: `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}` }, { name: 'Violation', value: violation }])
             .setFooter({ text: 'Discord Security' })
             .setTimestamp(Date.now());
 
