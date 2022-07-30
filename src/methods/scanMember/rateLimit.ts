@@ -2,10 +2,8 @@ import { GuildMember } from 'discord.js';
 import ban from '../ban';
 import { BanStatus, MemberJoinEntry } from './duplicateAvatar';
 
-const rateLimits: {
-    // Index by Guild ID
-    [index: string]: (MemberJoinEntry & { member: string })[];
-} = {};
+// Index by Guild ID
+const rateLimits: Record<string, (MemberJoinEntry & { member: string })[]> = {};
 
 const limit = 3;
 const time = 30 * 1000;
