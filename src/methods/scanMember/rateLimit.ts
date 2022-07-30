@@ -24,6 +24,7 @@ export default async (member: GuildMember): Promise<boolean> => {
             // Check to make sure the system hasn't already banned this user
             if (guildLimits[i].banned === BanStatus.UNBANNED) {
                 const user = member.guild.members.resolve(guildLimits[i].member);
+                if (!user) continue;
                 guildLimits[i].banned = BanStatus.BANNING;
                 await ban(user, 'New User Rate Limit');
                 guildLimits[i].banned = BanStatus.BANNED;

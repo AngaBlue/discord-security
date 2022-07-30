@@ -15,7 +15,7 @@ async function ban(member: GuildMember, violation: string): Promise<void> {
         await member.ban({ reason: `Auto Ban: ${violation}` });
 
         const embed = new EmbedBuilder()
-            .setAuthor({ name: 'Member Auto Banned', iconURL: client.user.displayAvatarURL() })
+            .setAuthor({ name: 'Member Auto Banned', iconURL: client.user?.displayAvatarURL() })
             .setColor(0xff4040)
             .setThumbnail(member.user.displayAvatarURL())
             .addFields([{ name: 'Server', value: member.guild.name }, { name: 'Member', value: `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}` }, { name: 'Violation', value: violation }])
@@ -25,7 +25,7 @@ async function ban(member: GuildMember, violation: string): Promise<void> {
         logChannel.send({ embeds: [embed] });
     } catch (error) {
         const embed = new EmbedBuilder()
-            .setAuthor({ name: 'Error', iconURL: client.user.displayAvatarURL() })
+            .setAuthor({ name: 'Error', iconURL: client.user?.displayAvatarURL() })
             .setColor(0xff4040)
             .addFields([{ name: 'Error', value: 'Failed to auto ban.'}, { name: 'Server', value: member.guild.name }, { name: 'Member', value: `${member}\n**Tag**: ${member.user.tag}\n**ID:** ${member.id}` }, { name: 'Violation', value: violation }])
             .setFooter({ text: 'Discord Security' })

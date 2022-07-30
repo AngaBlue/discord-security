@@ -8,7 +8,7 @@ client.on('guildCreate', async guild => {
     const logChannel = (await client.channels.fetch(config.logChannel)) as TextChannel;
 
     const embed = new EmbedBuilder()
-        .setAuthor({ name: 'Joined Server', iconURL: client.user.displayAvatarURL() })
+        .setAuthor({ name: 'Joined Server', iconURL: client.user?.displayAvatarURL() })
         .setColor(0x40ff40)
         .setThumbnail(guild.iconURL())
         .addFields([{ name: 'Server', value: guild.name },  { name: 'Members', value: `${guild.memberCount}` }])

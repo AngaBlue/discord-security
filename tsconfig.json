@@ -1,23 +1,23 @@
 {
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"],
     "compilerOptions": {
+        "outDir": "./build",
+        "typeRoots": ["node_modules/@types", "src/@types"],
+        "target": "es2021",
         "module": "commonjs",
-        "target": "esnext",
-        "outDir": "build",
-        "rootDir": "src",
-        "esModuleInterop": true,
-        "noImplicitAny": true,
-        "typeRoots": [
-            "node_modules/@types",
-            "src/typings"
-        ],
-        "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": ["ES6"],
-        "pretty": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
         "resolveJsonModule": true,
-        "skipLibCheck": true 
-    },
-    "include": [
-        "src"
-    ]
+        "newLine": "lf",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "useUnknownInCatchVariables": true,
+        "isolatedModules": true
+    }
 }
